@@ -41,11 +41,7 @@
                 </p>
             </div>
             <div class="flex gap-1">
-                @if(DateHelper::isTimeEnded($product->bid_end_date))
-                    <a href="bid-winner.html" title="bid winner">
-                        <img src="{{ asset('images/profile-2.jpg') }}" alt="bid winner" class="w-8 h-8 object-cover rounded-full">
-                    </a>
-                @else
+                @if(! DateHelper::isTimeEnded($product->bid_end_date))
                     <button 
                         type="button" 
                         class="delete-btn w-8 h-8 grid place-items-center text-xs text-dark bg-gray-100 hover:bg-gray-200 rounded-full transition-all duration-200 ease-in" 
