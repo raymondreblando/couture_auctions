@@ -1,6 +1,4 @@
 import { timeRemaining, isTimeEnded } from "./utils";
-
-const basePath = import.meta.env.BASE_URL;
 // function updateBidderList(element, datas) {
 //     element.innerHTML = '';
 
@@ -16,7 +14,7 @@ const basePath = import.meta.env.BASE_URL;
 export function emptyHistory() {
     return `
         <div class="h-[300px] flex flex-col items-center justify-center">
-            <img src="${basePath}images/empty-history.svg" alt="empty" class="w-28 h-28">
+            <img src="/images/empty-history.svg" alt="empty" class="w-28 h-28">
             <p class="text-[10px] md:text-xs font-medium text-dark/60">No bidding history found</p>
         </div>
     `;
@@ -34,7 +32,7 @@ export function bidderCard(index, data) {
                 </span>
                     ${data.user.profile !== null ?
                         `<img 
-                            src="${basePath}storage/profiles/${data.user.profile.image}}}" 
+                            src="/storage/profiles/${data.user.profile.image}}}" 
                             alt="${data.user.fullname}" 
                             class="w-8 md:w-10 h-8 md:h-10 object-cover rounded-full"
                         >` :
@@ -92,7 +90,7 @@ export function productCard(index, data) {
     return `
         <div class="h-max bg-white rounded-md overflow-hidden">
             <img 
-                src="${basePath}storage/product_images/${data.product_image.image}" 
+                src="/storage/product_images/${data.product_image.image}" 
                 alt="${data.product_name}" 
                 class="w-full object-contain rounded-md"
             >
