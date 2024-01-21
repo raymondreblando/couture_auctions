@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+* {
+    @apply tracking-tight;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+input,
+select,
+textarea {
+    @apply font-poppins outline-none;
+}
+
+select {
+    background: url(../../public/images/expand-arrow.svg) no-repeat;
+    background-size: 14px;
+    background-position: right center;
+    background-origin: content-box;
+}
+
+.loader {
+    @apply fixed inset-0 flex flex-col items-center justify-center gap-1 bg-white z-[100] opacity-0 invisible;
+}
+
+.loader.show {
+    @apply opacity-100 visible transition-all;
+}
+
+.toast {
+    @apply fixed top-[2.5rem] left-1/2 -translate-x-1/2 w-max rounded-md overflow-hidden shadow-lg invisible opacity-0 ease-linear duration-200 z-[55];
+}
+
+.toast.success {
+    @apply bg-emerald-500 shadow-emerald-900/30 top-[5rem] visible opacity-100;
+}
+
+.toast.error {
+    @apply bg-red-500 shadow-red-900/30 top-[5rem] visible opacity-100;
+}
+
+.toast-icon,
+.toast-message {
+    @apply translate-y-[180%] opacity-0 transition-all;
+}
+
+.toast.success .toast-icon,
+.toast.error .toast-icon,
+.toast.success .toast-message,
+.toast.error .toast-message {
+    @apply translate-y-0 opacity-100;
+}
+
+.toast-close {
+    @apply translate-x-full opacity-0 transition-all;
+}
+
+.toast.success .toast-close,
+.toast.error .toast-close {
+    @apply translate-x-0 opacity-100;
+}
+
+.custom-scroll::-webkit-scrollbar {
+    @apply w-[5px];
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    @apply w-[5px] rounded-lg bg-transparent;
+}
+
+.custom-scroll:hover::-webkit-scrollbar-thumb {
+    @apply bg-gray-100;
+}
+
+.header {
+    @apply fixed top-0 inset-x-0 bg-white transition-all duration-75 z-[5] border-b border-b-gray-300/40;
+}
+
+.nav-menu {
+    @apply fixed lg:static top-[73px] md:top-[89px] inset-x-0 bg-white hidden lg:flex flex-col lg:flex-row justify-center md:justify-start items-center gap-6 lg:gap-0 py-12 lg:py-0 px-6 lg:px-0 z-[5] shadow-xl lg:shadow-none;
+}
+
+.nav-menu.show{
+    @apply flex;
+}
+
+.nav__link {
+    @apply text-xl lg:text-[15px] font-medium py-3 px-4 text-dark/70 hover:text-dark transition-all;
+}
+
+.nav__link.active {
+    @apply text-primary font-semibold;
+}
+
+.filter-container {
+    @apply fixed md:relative top-16 -left-1/2 md:inset-0 md:top-0 bg-white md:bg-transparent py-6 md:py-0 px-6 md:px-0 w-[14rem] md:w-auto h-screen max-h-screen overflow-y-auto shadow-xl md:shadow-none opacity-0 md:opacity-100 invisible md:visible;
+}
+
+.filter-container.show{
+    @apply left-0 opacity-100 visible transition-all;
+}
+
+.radio {
+    @apply relative w-5 h-5 border group-[.selected]:border border-gray-300 group-hover:border-dark group-[.selected]:border-primary rounded-full group-[.selected]:before:absolute group-[.selected]:before:top-1/2 group-[.selected]:before:-translate-y-1/2 group-[.selected]:before:left-1/2 group-[.selected]:before:-translate-x-1/2 group-[.selected]:before:w-3 group-[.selected]:before:h-3 group-[.selected]:before:bg-primary group-[.selected]:before:rounded-full transition-all duration-200;
+}
+
+.your-ranking {
+    @apply bg-violet-100;
+}
+
+.history-filter {
+    @apply bg-white py-3 px-6 rounded-md text-xs md:text-sm font-medium transition-all duration-200;
+}
+
+.history-filter.active {
+    @apply bg-violet-100 text-primary;
+}
+
+.sidebar{
+    @apply fixed top-0 -left-1/4 md:left-0 w-[6rem] min-h-screen bg-white py-4 flex flex-col justify-between border-r border-r-gray-300/40 z-[5] opacity-0 md:opacity-100 invisible md:visible;
+}
+
+.sidebar.show{
+    @apply left-0 visible opacity-100 transition-all duration-200;
+}
+
+.aside__link {
+    @apply relative flex justify-center text-2xl text-dark py-[0.3rem] mb-3;
+}
+
+.aside__link.active {
+    @apply font-medium text-primary before:absolute before:right-0 before:inset-y-0 before:w-[2px] before:bg-primary;
+}
+
+.filter-box {
+    @apply flex-1 md:flex-initial flex justify-center items-center text-[10px] md:text-sm font-medium text-dark/70 h-10 bg-white hover:bg-gray-100 border border-gray-200 rounded-[5px] px-3 transition-all duration-200 ease-in;
+}
+
+.filter-box.active {
+    @apply bg-violet-100 text-primary;
+}
+
+th {
+    @apply text-[10px] md:text-xs text-dark font-semibold uppercase py-4 px-4 border border-gray-300/40;
+}
+
+td {
+    @apply text-[10px] md:text-xs text-dark/60 font-semibold py-4 px-4 border border-gray-300/40;
+}
+
+.status-indicator {
+    @apply w-2 h-2;
+}
+
+.status-indicator.active {
+    @apply bg-emerald-600;
+}
+
+.status-indicator.block {
+    @apply bg-rose-600;
+}
+
+.status-active {
+    @apply text-emerald-600;
+}
+
+.status-block {
+    @apply text-rose-600;
+}
+
+.message-status {
+    @apply text-[11px] font-semibold py-1 px-2 rounded-md;
+}
+
+.message-status.unread {
+    @apply bg-gray-100;
+}
+
+.message-status.read {
+    @apply bg-violet-100 text-primary;
+}
+
+.notif {
+    @apply flex items-center gap-2 py-3 px-6 hover:bg-gray-100;
+}
+
+.notif.unread {
+    @apply bg-gray-100;
+}
