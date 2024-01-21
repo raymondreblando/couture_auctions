@@ -30,6 +30,7 @@ class DashboardController extends Controller
             ->take(3)->latest()->get();
 
         $topBidders = User::users()->with('profile')
+            ->has('bids')
             ->withSum('bids', 'amount')
             ->orderByDesc('bids_sum_amount')
             ->take(5)

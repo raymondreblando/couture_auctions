@@ -13,7 +13,7 @@ class TopBidder extends Component
     public function __construct(
         public User $user,
         public ?Profile $profile = null,
-        public string $amount,
+        public ?string $amount = null,
         public int $count
     ){}
 
