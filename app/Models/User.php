@@ -70,7 +70,7 @@ class User extends Authenticatable
 
     public function scopeUsers(Builder $query): void
     {
-        $query->whereNot('role_id', '01hkvjx8dq4a73dwe9a8tk7rta');
+        $query->whereNot('role_id', auth()->user()->role_id);
     }
 
     public function isAdmin(): bool
